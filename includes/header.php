@@ -1,5 +1,6 @@
 <?php 
 require_once 'config/config.php';
+require_once 'server/classes/fetchdata.php';
 ?>
 
 <!DOCTYPE html>

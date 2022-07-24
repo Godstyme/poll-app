@@ -3,15 +3,15 @@
 ?>
       <section>
          <div class="container pb-5">
-            <div class="row pt-5">
+            <div class="row pt-5 pb-3">
                <div class="d-flex align-items-center justify-content-center text-light">
                   <form  method="post" id="makeapoll">
                      <div id="errorMSG" class="text-center">
                      </div>
-                     <div class="mb-4">   
-                        <div class="">
-                           <textarea class="border-0 w-100 rounded p-2 form-control" name="queTitle" cols="30" rows="2" placeholder="Create a poll" id="text">
-                           </textarea>
+                     <div class="mb-4">
+                        <div class="form-outline">
+                           <label class="form-label" for="textAreaExample">Create A Poll</label>
+                           <textarea class="form-control" id="textAreaExample1" cols="30" rows="2" name="queTitle" placeholder="Write something"></textarea>
                         </div>
                      </div>
                      <div class="mb-3">
@@ -38,6 +38,7 @@
             </div>
          </div>
       </section>
+      <!-- https://stackoverflow.com/questions/33138756/create-unique-url-in-php-for-each-entry -->
 <?php 
    require_once 'includes/footer.php';
 ?>

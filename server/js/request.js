@@ -16,15 +16,14 @@ $(document).ready(function($) {
                   $("#errorMSG").removeClass('alert alert-danger');
                   $("#errorMSG").addClass('alert alert-success');
                   $("#errorMSG").html(response.message);
-                  // setTimeout(function() {
-                  //        window.location="login";
-                  // }, 3000)
+                  setTimeout(function() {
+                         window.location="poll.php";
+                  }, 1500)
                } else{
                   $("#errorMSG").html("please check what you are doing");                   
                }
             },
             error: function (response) {
-               // let msg = JSON.parse(response);
                console.log(response)
             }
          })

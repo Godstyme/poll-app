@@ -1,11 +1,12 @@
 <?php
 require_once 'processrequest.php';
 require_once 'insertdata.php';
+require_once 'fetchdata.php';
 require_once '../helper/polllink.php';
 
 $processRequest = new ProcessRequest;
 $insertData = new InsertData;
-// $fetchData = new FetchData;
+$fetchData = new FetchData;
 
 $time = date('H:i:s');
 $date = date('Y-m-d');
@@ -32,13 +33,18 @@ switch ($requestingPage) {
             $response = array('status'=>0,'input'=>"lname",'message'=>"*Option D is required");
          }
           else {
-            $link = linkGenerator(8);
+            $link = uniqURL();
             $tblName = "questions";
-            $insertResponse = $insertData->createPollQue($tblName,$queTitle,$optionA,$optionB,$optionC,$optionD,$link,$time,$date);
-            if ($insertResponse['status']) {
-               $response = array('status'=>1,'input'=>"details",'message'=>"You have successfully created a poll..");
-            }else {
-               $response = array('status'=>0, 'input'=>"details", 'message'=>$insertResponse['message']);
+            $fetchResponse = $fetchData->checkURL($tblName,$link);
+            if (is_array($fetchResponse)) {
+               if (isset($fetchResponse['status']) && $fetchResponse['status'] == 0) {
+                  $insertResponse = $insertData->createPollQue($tblName,$queTitle,$optionA,$optionB,$optionC,$optionD,$link,$time,$date);
+                  if ($insertResponse['status']) {
+                     $response = array('status'=>1,'input'=>"details",'message'=>"You have successfully created a poll..");
+                  }else {
+                     $response = array('status'=>0, 'input'=>"details", 'message'=>$insertResponse['message']);
+                  }
+               }
             }
         
          } 
