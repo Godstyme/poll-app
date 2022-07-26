@@ -2,7 +2,7 @@
 require_once 'processrequest.php';
 require_once 'insertdata.php';
 require_once 'fetchdata.php';
-require_once '../helper/polllink.php';
+// require_once '../helper/polllink.php';
 
 $processRequest = new ProcessRequest;
 $insertData = new InsertData;
@@ -33,7 +33,8 @@ switch ($requestingPage) {
             $response = array('status'=>0,'input'=>"lname",'message'=>"*Option D is required");
          }
           else {
-            $link = uniqURL();
+            // $link = uniqURL();
+            $link = $_POST["link"];
             $tblName = "questions";
             $fetchResponse = $fetchData->checkURL($tblName,$link);
             if (is_array($fetchResponse)) {

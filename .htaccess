@@ -1,4 +1,4 @@
-RewriteEngine On
+# RewriteEngine On
 # RewriteCond %{REQUEST_FILENAME} !-f
 # RewriteCond %{REQUEST_FILENAME} !-d
 # RewriteRule ^([a-z]+)$ poll.php?u=$1
@@ -6,4 +6,4 @@ RewriteEngine On
 # RewriteCond %{REQUEST_FILENAME} !-f
 # RewriteCond %{REQUEST_FILENAME} !-d
 # RewriteRule ^.*$ poll.php [L]
-RewriteRule ^profile/?$   poll.php
+# RewriteRule ^profile/?$   poll.php

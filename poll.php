@@ -12,7 +12,9 @@
                <?php
                   $fetchData = new FetchData;
                   $tblName = "questions";
-                  $link = $_GET['polllink'];;
+                  $link = $_GET['polllink'];
+                  // $url = $_COOKIE['link'];
+                  echo $link;
                   $fetchResponse = $fetchData->getPollData($tblName,$link);
                   if(is_array($fetchResponse)){
                      if(isset($fetchResponse['status'])){

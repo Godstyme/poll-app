@@ -1,5 +1,7 @@
 <?php 
    require_once 'includes/header.php';
+   require_once 'server/helper/polllink.php';
+   $link = uniqURL();
 ?>
       <section>
          <div class="container pb-5">
@@ -11,7 +13,7 @@
                      <div class="mb-4">
                         <div class="form-outline">
                            <label class="form-label" for="textAreaExample">Create A Poll</label>
-                           <textarea class="form-control" id="textAreaExample1" cols="30" rows="2" name="queTitle" placeholder="Write something"></textarea>
+                           <textarea class="form-control" id="textAreaExample1" cols="30" rows="2" name="queTitle" placeholder="Ask Question for Poll?"></textarea>
                         </div>
                      </div>
                      <div class="mb-3">
@@ -29,6 +31,9 @@
                      <div class="mb-4">
                         <label for="exampleInputD" class="form-label">Option D</label>
                         <input type="text" class="form-control" id="exampleInputD" placeholder="Enter Option D" name="optionD">
+                     </div>
+                     <div>
+                        <input type="hidden" name="link" value="<?php echo $link ?>">
                      </div>
                      <div class="d-grid gap-2">
                         <button class="btn btn-lg text-light" type="submit" style="background: #CD4C87;">Create Poll</button>

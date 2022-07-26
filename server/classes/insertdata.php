@@ -17,7 +17,7 @@ class InsertData extends DbConnection {
     }
 }
 // $data = new InsertData;
-// echo json_encode($data->createPollQue('questions','bbh','Onyibe','gostime@gmail.com','09088','uututu','33','hdfhf','hfdhdf'));
+// echo json_encode($data->createPollQue('questions','bbh','Onyibe','gostime@gmail.com','09088','uututu','33',date('H:i:s'),date('Y-m-d')));
 
 
 
