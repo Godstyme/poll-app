@@ -5,9 +5,7 @@
          <div class="container pb-5">
             <div class="row pt-2 pb-2">
                <div class="col-lg-4 offset-lg-4 col-md-5 offset-md-4 px-5">
-                  <button type="button" class="btn btn-outline-primary mt-5 mb-2 mx-3 btn-sm w-50">
-                     <a href="<?php echo SITEURL ?>index.php" class="text-decoration-none text-light">Home</a>
-                  </button>
+                  <a href="<?php echo SITEURL ?>index.php" class="btn btn-outline-primary mt-5 mb-2 mx-3 btn-sm w-50 text-decoration-none text-light">Home</a>
                </div>
                <?php
                   $fetchData = new FetchData;
