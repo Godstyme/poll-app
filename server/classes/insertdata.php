@@ -8,6 +8,7 @@ class InsertData extends DbConnection {
 
         $query = $this->connection->prepare($sql);
         $exec = $query->execute([$queTitle,$optionA,$optionB,$optionC,$optionD,$pollLink,$time,$date]);
+        // $id = $this->connection->lastInsertId();
         
         if ($query->errorCode() == 0) {
             return array('status'=>1);

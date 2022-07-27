@@ -9,6 +9,7 @@ $(document).ready(function($) {
             data:$(this).serialize(),
             success: function (response) {
                // console.log(response.message)
+               let page = response.page;
                if(response.status === 0){
                   $("#errorMSG").addClass('alert alert-danger');
                   $("#errorMSG").html(response.message);
@@ -17,7 +18,7 @@ $(document).ready(function($) {
                   $("#errorMSG").addClass('alert alert-success');
                   $("#errorMSG").html(response.message);
                   setTimeout(function() {
-                         window.location="poll.php";
+                        window.location=`poll.php/${page}`;
                   }, 1500)
                } else{
                   $("#errorMSG").html("please check what you are doing");                   

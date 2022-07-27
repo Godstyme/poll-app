@@ -13,7 +13,4 @@
    <script type="text/javascript" src="<?php echo MULTIPATH ?>js/script.js"></script>
    <script src="server/js/request.js"></script>
 </body>
-
-
-
 </html>

@@ -19,23 +19,6 @@ class FetchData extends DbConnection {
       }   
    }
 
-   public function getAllPoll($tblName) {
-		$sql = "SELECT * FROM {$tblName} ORDER BY id ";
-        $query = $this->connection->prepare($sql);
-        $exec = $query->execute();
-        
-        if($query->errorCode() == 0){
-            if ($query->rowCount() > 0) {
-                return $query->fetchAll(PDO::FETCH_ASSOC);    
-            }else{
-                return 0;
-            } 
-        }else{
-            return array('status'=>0, 'message'=>$query->errorInfo()); 
-        }
-		
-	}
-
    public function getPollData($tblName,$polllink) {
       $sql = "SELECT * FROM {$tblName} WHERE polllink = :polllink ";
       $query = $this->connection->prepare($sql);
@@ -51,6 +34,9 @@ class FetchData extends DbConnection {
          return array('status'=>0, 'message'=>$query->errorInfo()); 
       }   
    }
+
+
+
 }
 
 
@@ -59,7 +45,7 @@ class FetchData extends DbConnection {
 
 
 // $data = new FetchData;
-// echo json_encode($data->getPollData('questions','c675dab27b0bd8cf'));
+// echo json_encode($data->getPollData('questions', '06e92174ddd02153'));
 
 
 
