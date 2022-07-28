@@ -51,6 +51,7 @@ switch ($requestingPage) {
          } 
       }
    break;  
+   // case 'btna':
    
    default:
       $response=array('status'=>0,'message'=>"Invalid Request, please check what you're doing");

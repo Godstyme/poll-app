@@ -1,9 +1,5 @@
-RewriteEngine On
-# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteEngine on
+# RewriteCond %{REQUEST_FILENAME}\.php -f 
 # RewriteCond %{REQUEST_FILENAME} !-d
-# RewriteRule ^([a-z]+)$ poll.php?u=$1
-# RewriteCond %{REQUEST_URI} !\.(png|jpe?g|gif|css|js|html)$ [NC]
-# RewriteCond %{REQUEST_FILENAME} !-f
-# RewriteCond %{REQUEST_FILENAME} !-d
-# RewriteRule ^.*$ poll.php [L]
-# RewriteRule ^ $page/?$   index.php
+# # RewriteRule (.*) poll.php/$page=$1 [QSA]
+# RewriteRule ^(.*)$ $1.php

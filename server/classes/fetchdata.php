@@ -26,9 +26,9 @@ class FetchData extends DbConnection {
       if($query->errorCode() == 0){
          if ($query->rowCount() > 0) {
             $data = $query->fetchAll(PDO::FETCH_ASSOC);
-            return array('status'=>1,'data'=>$data);
+            return $data;
          }else{
-            return array('status'=>0,'message'=>'no record found');
+            return 'no record found';
          } 
       }else {
          return array('status'=>0, 'message'=>$query->errorInfo()); 
@@ -45,7 +45,7 @@ class FetchData extends DbConnection {
 
 
 // $data = new FetchData;
-// echo json_encode($data->getPollData('questions', '06e92174ddd02153'));
+// echo json_encode($data->getPollData('questions', '0e852d9a5a60cd1e'));
 
 
 

@@ -18,7 +18,8 @@ $(document).ready(function($) {
                   $("#errorMSG").addClass('alert alert-success');
                   $("#errorMSG").html(response.message);
                   setTimeout(function() {
-                        window.location=`poll.php/${page}`;
+                     let dir = 'poll.php';
+                     window.location = `${dir}/${page}`;
                   }, 1500)
                } else{
                   $("#errorMSG").html("please check what you are doing");                   
