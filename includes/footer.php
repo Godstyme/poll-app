@@ -1,3 +1,4 @@
+
    </main>
    <footer style="background: #0E0011;" class="py-3 h-auto">
       <div class="text-center text-light">
@@ -15,6 +16,6 @@
    <script type="text/javascript" src="<?php echo MULTIPATH ?>js/bs.min.js"></script>
    <script type="text/javascript" src="<?php echo MULTIPATH ?>js/script.js"></script>
    <script src="server/js/request.js"></script>
-   </body>
+</body>
 
-   </html>
+</html>

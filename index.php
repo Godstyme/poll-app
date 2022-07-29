@@ -1,13 +1,11 @@
-<?php 
-   require_once 'includes/header.php';
-   // require_once 'server/helper/polllink.php';
-   // $link = uniqURL();
+<?php
+require_once 'includes/header.php';
 ?>
-      <section>
+      <section class="md-height">
          <div class="container pb-5">
             <div class="row pt-5 pb-3">
                <div class="d-flex align-items-center justify-content-center text-light py-2" style="box-shadow: 0px 0px 5px #000;">
-                  <form  method="post" id="makeapoll">
+                  <form method="post" id="makeapoll">
                      <div id="errorMSG" class="text-center">
                      </div>
                      <div class="mb-4">
@@ -32,9 +30,6 @@
                         <label for="exampleInputD" class="form-label">Option D</label>
                         <input type="text" class="form-control" id="exampleInputD" placeholder="Enter Option D" name="optionD">
                      </div>
-                     <!-- <div>
-                        <input type="hidden" name="link" value="<?php echo $link ?>">
-                     </div> -->
                      <div class="d-grid gap-2">
                         <button class="btn btn-lg text-light" type="submit" style="background: #CD4C87;">Create Poll</button>
                      </div>
@@ -43,7 +38,6 @@
             </div>
          </div>
       </section>
-      <!-- https://stackoverflow.com/questions/33138756/create-unique-url-in-php-for-each-entry -->
-<?php 
-   require_once 'includes/footer.php';
+<?php
+require_once 'includes/footer.php';
 ?>

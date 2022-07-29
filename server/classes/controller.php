@@ -37,7 +37,7 @@ switch ($requestingPage) {
             $tblName = "questions";
             $fetchResponse = $fetchData->checkURL($tblName,$link);
             if (is_array($fetchResponse)) {
-               if (isset($fetchResponse['status']) && $fetchResponse['status'] == 0) {
+               if (isset($fetchResponse['status']) && $fetchResponse['status'] == 0):
                   $insertResponse = $insertData->createPollQue($tblName,$queTitle,$optionA,$optionB,$optionC,$optionD,$link,$time,$date);
                  
                   if ($insertResponse['status']) {
@@ -45,13 +45,20 @@ switch ($requestingPage) {
                   }else {
                      $response = array('status'=>0, 'input'=>"details", 'message'=>$insertResponse['message']);
                   }
-               }
+               endif;
             }
         
          } 
       }
    break;  
-   // case 'btna':
+   case 'vote':
+      if ($_SERVER["REQUEST_METHOD"] == "POST") :
+         $ip_address = $_SERVER['REMOTE_ADDR'];
+         $pollId = $_GET['pollid'];
+         echo $pollId;
+         $insertResponse = $insertData->insertVote($queTitle, $optionA, $optionB, $optionC, $optionD);
+
+      endif;
    
    default:
       $response=array('status'=>0,'message'=>"Invalid Request, please check what you're doing");

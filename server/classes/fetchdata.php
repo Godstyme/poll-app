@@ -24,17 +24,34 @@ class FetchData extends DbConnection {
       $query = $this->connection->prepare($sql);
       $exec = $query->execute(array(':polllink'=>$polllink));
       if($query->errorCode() == 0){
-         if ($query->rowCount() > 0) {
-            $data = $query->fetchAll(PDO::FETCH_ASSOC);
-            return $data;
-         }else{
-            return 'no record found';
-         } 
+         return $query->fetchAll(PDO::FETCH_ASSOC);
+         // if ($query->rowCount() > 0) {
+         //    $data = $query->fetchAll(PDO::FETCH_ASSOC);
+         //    return $data;
+         // }else{
+         //    return 'no record found';
+         // } 
       }else {
          return array('status'=>0, 'message'=>$query->errorInfo()); 
       }   
    }
 
+
+   public function getVoteSummation($queid) {
+      $sql = "SELECT SUM(optiona) + SUM(optionb)+ SUM(optionc)+ SUM(optiond) FROM pollresult WHERE queid = :queid";
+      $query = $this->connection->prepare($sql);
+      $exec = $query->execute([':queid'=>$queid]);
+      if ($query->errorCode() == 0) {
+         if ($query->rowCount() > 0) {
+            $data = $query->fetchAll(PDO::FETCH_ASSOC);
+            return $data;
+         } else {
+            return array('status' => 0);
+         }
+      } else {
+         return array('status' => 0, 'message' => $query->errorInfo());
+      } 
+   }
 
 
 }
@@ -45,7 +62,7 @@ class FetchData extends DbConnection {
 
 
 // $data = new FetchData;
-// echo json_encode($data->getPollData('questions', '0e852d9a5a60cd1e'));
+// echo json_encode($data->getVoteSummation(8));
 
 
 

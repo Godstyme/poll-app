@@ -16,6 +16,20 @@ class InsertData extends DbConnection {
             return array('status'=>0, 'message'=>$query->errorInfo());
         } 
     }
+
+    public function insertVote($ipAddress,$a){
+        $sql = "INSERT INTO pollresult (useripaddress,a) VALUES(:useripaddress,:a)";
+
+        $query = $this->connection->prepare($sql);
+        $exec = $query->execute([$ipAddress, $a]);
+
+        if ($query->errorCode() == 0) {
+            return array('status' => 1);
+        } else {
+            return array('status' => 0, 'message' => $query->errorInfo());
+        } 
+    }
+
 }
 // $data = new InsertData;
 // echo json_encode($data->createPollQue('questions','bbh','Onyibe','gostime@gmail.com','09088','uututu','33',date('H:i:s'),date('Y-m-d')));
